@@ -1,17 +1,20 @@
+using merketoaspnet.Contexts;
+using merketoaspnet.Helpers.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
 // Contexts
-
-// Identity
+builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Sql")));
 
 // Repositories
-
+builder.Services.AddScoped<ProductRepo>();
 // Services
 
 
-
+// Identity
 
 
 var app = builder.Build();
