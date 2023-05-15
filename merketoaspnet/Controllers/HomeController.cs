@@ -4,7 +4,7 @@ namespace merketoaspnet.Controllers;
 
 public class HomeController : Controller
 {
-    public IActionResult Index()
+    public async Task <IActionResult> Index()
     {
         return View();
     }
