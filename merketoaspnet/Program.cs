@@ -1,5 +1,6 @@
 using merketoaspnet.Contexts;
 using merketoaspnet.Helpers.Repositories;
+using merketoaspnet.Helpers.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,9 @@ builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configura
 
 // Repositories
 builder.Services.AddScoped<ProductRepo>();
+
 // Services
+builder.Services.AddScoped<ProductService>();
 
 
 // Identity
