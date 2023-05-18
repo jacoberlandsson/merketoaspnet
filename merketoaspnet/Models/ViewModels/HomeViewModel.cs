@@ -2,8 +2,8 @@
 
 public class HomeViewModel
 {
-    public CollectionViewModel? Popular { get; set; }
-    public CollectionViewModel? New { get; set; }
-    public CollectionViewModel? Featured { get; set; }
+    public ProductByTagsViewModel? Popular { get; set; }
+    public ProductByTagsViewModel? New { get; set; }
+    public ProductByTagsViewModel? Featured { get; set; }
 
 }

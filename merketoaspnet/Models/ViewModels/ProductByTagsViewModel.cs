@@ -3,7 +3,7 @@ using merketoaspnet.Models.Dtos;
 
 namespace merketoaspnet.Models.ViewModels
 {
-    public class CollectionViewModel
+    public class ProductByTagsViewModel
     {
         public string? Title { get; set; }
 

@@ -17,13 +17,13 @@ public class HomeController : Controller
     {
         var viewModel = new HomeViewModel
         {
-            New = new CollectionViewModel
+            New = new ProductByTagsViewModel
             {
                 Title = "New",
                 NewProducts = await _productService.GetAllByTagNameAsync("New")
             },
 
-            Popular = new CollectionViewModel
+            Popular = new ProductByTagsViewModel
             {
                 Title = "Popular",
                 PopularProducts = await _productService.GetAllByTagNameAsync("Popular")
@@ -33,7 +33,7 @@ public class HomeController : Controller
 
             },
 
-            Featured = new CollectionViewModel
+            Featured = new ProductByTagsViewModel
             {
                 Title = "Featured",
                 NewProducts = await _productService.GetAllByTagNameAsync("Featured")
