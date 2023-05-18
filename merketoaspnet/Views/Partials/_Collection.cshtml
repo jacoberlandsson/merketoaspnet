@@ -10,7 +10,8 @@
                 <a asp-action="ProductDetails" asp-controller="Products" asp-route-id="@product.ArticleNumber" class="collection-item">
                     <img src="images/placeholders/270x295.svg" alt="">
                     <div class="body">
-                        <div class="title">@product.ProductName</div>
+                        <div class="title">@product.VendorName @product.ProductName</div>
+                       
                         <div class="info">
                             <div class="price">@product.Price SEK</div>
                             <i class="add-cart fa-solid fa-cart-plus"></i>

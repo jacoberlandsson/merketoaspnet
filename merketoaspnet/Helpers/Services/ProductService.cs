@@ -39,6 +39,7 @@ public class ProductService
             productList.Add(new Product
             {
                 ArticleNumber = product.ArticleNumber,
+                ProductName = product.ProductName,
                 Ingress = product.Ingress,
                 Description = product.Description,
                 Tags = tagList,
