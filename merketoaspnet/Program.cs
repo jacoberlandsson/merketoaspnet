@@ -1,6 +1,7 @@
 using merketoaspnet.Contexts;
 using merketoaspnet.Helpers.Repositories;
 using merketoaspnet.Helpers.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,13 +13,19 @@ builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configura
 
 // Repositories
 builder.Services.AddScoped<ProductRepo>();
+builder.Services.AddScoped<ContactRepo>();
 
 // Services
 builder.Services.AddScoped<ProductService>();
 
 
-// Identity
 
+// Identity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
+{
+    x.SignIn.RequireConfirmedAccount = false;
+    x.Password.RequiredLength = 8;
+}).AddEntityFrameworkStores<DataContext>();
 
 var app = builder.Build();
 app.UseHsts();

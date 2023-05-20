@@ -1,0 +1,14 @@
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+
+namespace merketoaspnet.Models.Entities
+{
+    public class ContactFormEntity
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; } = null!;
+        public string LastName { get; set; } = null!;
+        public string Email { get; set; } = null!;
+        public string Message { get; set; } = null!;
+        public DateTime Created { get; set; } = DateTime.Now;
+    }
+}
