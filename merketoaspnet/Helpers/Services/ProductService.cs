@@ -4,6 +4,7 @@ using merketoaspnet.Helpers.Repositories;
 using merketoaspnet.Models.Dtos;
 using merketoaspnet.Models.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace merketoaspnet.Helpers.Services;
 
@@ -48,6 +49,26 @@ public class ProductService
         }
         return productList;
 
+    }
+
+    public async Task<Product> GetProductByArticleNumberAsync(string articleNumber)
+    {
+        var product = await _productRepository.GetAsync(p => p.ArticleNumber == articleNumber);
+
+        
+
+        var productDetails = new Product
+        {
+            ArticleNumber = product.ArticleNumber,
+            ProductName = product.ProductName,
+            Ingress = product.Ingress,
+            Description = product.Description,
+           
+            VendorName = product.VendorName,
+            Price = product.Price
+
+        };
+        return productDetails!;
     }
 
     public async Task<IEnumerable<Product>> GetAllByTagNameAsync(string tagName)

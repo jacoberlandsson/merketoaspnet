@@ -7,8 +7,8 @@
         <div class="collection-grid">
             @foreach (var product in Model.NewProducts)
             {
-                <a asp-action="ProductDetails" asp-controller="Products" asp-route-id="@product.ArticleNumber" class="collection-item">
-                    <img src="images/placeholders/270x295.svg" alt="">
+                <a asp-action="Index" asp-controller="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="collection-item">
+                    <img src="../images/placeholders/270x295.svg" alt="">
                     <div class="body">
                         <div class="title">@product.VendorName @product.ProductName</div>
                        
@@ -24,7 +24,7 @@
         <div class="collection-grid">
             @foreach (var product in Model.PopularProducts)
             {
-                <a asp-action="ProductDetails" asp-controller="Products" asp-route-id="@product.ArticleNumber" class="collection-item">
+                <a asp-action="ProductDetails" asp-controller="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="collection-item">
                     <img src="images/placeholders/270x295.svg" alt="">
                     <div class="body">
                         <div class="title">@product.ProductName</div>
@@ -40,7 +40,7 @@
         <div class="collection-grid">
             @foreach (var product in Model.FeaturedProducts)
             {
-                <a asp-action="ProductDetails" asp-controller="Products" asp-route-id="@product.ArticleNumber" class="collection-item">
+                <a asp-action="ProductDetails" asp-controller="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="collection-item">
                     <img src="images/placeholders/270x295.svg" alt="">
                     <div class="body">
                         <div class="title">@product.ProductName</div>
