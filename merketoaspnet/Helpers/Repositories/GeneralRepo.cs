@@ -40,18 +40,6 @@ namespace merketoaspnet.Helpers.Repositories
         }
 
 
-        public virtual async Task<TEntity> UpdateAsync(TEntity entity)
-        {
-            _context.Set<TEntity>().Update(entity);
-            await _context.SaveChangesAsync();
-            return entity;
-        }
-
-        public virtual async Task RemoveAsync(TEntity entity)
-        {
-            _context.Set<TEntity>().Remove(entity);
-            await _context.SaveChangesAsync();
-
-        }
+       
     }
 }
