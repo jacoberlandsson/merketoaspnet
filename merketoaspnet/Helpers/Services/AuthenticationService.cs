@@ -29,10 +29,12 @@ namespace merketoaspnet.Helpers.Services
                 var createUser = await _userManager.CreateAsync(viewModel, viewModel.Password);
                 if(createUser.Succeeded)
                 {
+                    var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == viewModel.Email);
+                    await _userManager.AddToRoleAsync(user!, "user");
 
                     var createAddress = await _addressService.GetOrCreateAddressAsync(viewModel);
-                    var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == viewModel.Email);
-                    return await _addressService.AddUserAddresses(user.Id, createAddress.Id);
+                    
+                    return await _addressService.AddUserAddresses(user!.Id, createAddress.Id);
                         
                 }
             }
@@ -52,7 +54,7 @@ namespace merketoaspnet.Helpers.Services
             return false;
         }
 
-        public async Task<bool> LogoutAsync(LogoutViewModel viewModel)
+        public async Task<bool> LogoutAsync()
         {
             try
             {
