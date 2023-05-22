@@ -1,6 +1,7 @@
 using merketoaspnet.Contexts;
 using merketoaspnet.Helpers.Repositories;
 using merketoaspnet.Helpers.Services;
+using merketoaspnet.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,10 +21,11 @@ builder.Services.AddScoped<ProductService>();
 
 
 
-// Identity
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(x =>
+// Authentication
+builder.Services.AddIdentity<UserEntity, IdentityRole>(x =>
 {
     x.SignIn.RequireConfirmedAccount = false;
+    x.User.RequireUniqueEmail = true;
     x.Password.RequiredLength = 8;
 }).AddEntityFrameworkStores<DataContext>();
 
@@ -32,6 +34,7 @@ app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",

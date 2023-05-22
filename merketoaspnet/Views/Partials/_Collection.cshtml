@@ -1,6 +1,6 @@
 ﻿@model ProductByTagsViewModel
 
-﻿<section id="TheNewProducts" class="best-collection">
+﻿<section class="best-collection my-4">
     <div class="container">
         <h1 class="collection-title">@Model.Title</h1>
        
@@ -25,7 +25,7 @@
             @foreach (var product in Model.PopularProducts)
             {
                 <a asp-action="ProductDetails" asp-controller="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="collection-item">
-                    <img src="images/placeholders/270x295.svg" alt="">
+                    <img src="../images/placeholders/270x295.svg" alt="">
                     <div class="body">
                         <div class="title">@product.ProductName</div>
                         <div class="info">

@@ -1,8 +1,11 @@
 ﻿@model ContactViewModel
 
+<div class="showcase">
+<div class="container">
+    <div class="content">
 <form method="post" asp-action="Index" asp-controller="Contacts" novalidate>
     <div class="mb-3">
-        <label asp-for="FirstName" class="form-label"></label>
+        <label asp-for="FirstName" class="form-label my-2"></label>
         <input asp-for="FirstName" class="form-control" />
         <span asp-validation-for="FirstName" class="small text-danger"></span>
     </div>
@@ -21,7 +24,7 @@
 
     <div class="mb-3">
         <label asp-for="Message" class="form-label"></label>
-        <textarea> asp-for="Message" class="form-control" rows="4" </textarea>
+        <textarea asp-for="Message" class="form-control" rows="6"> </textarea>
         <span asp-validation-for="Message" class="small text-danger"></span>
     </div>
 
@@ -29,3 +32,6 @@
         <button class="btn btn-success">Submit</button>
     </div>
 </form>
+</div>
+</div>
+</div>

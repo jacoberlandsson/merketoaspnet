@@ -1,0 +1,48 @@
+﻿@model UserRegistrationViewModel
+
+@{
+    ViewData["Title"] = "Registrera ett nytt konto";
+}
+
+<div class="d-flex justify-content-center">
+    <div class="col-6">
+        <form asp-action="Index" asp-controller="UserRegistration" method="post" novalidate>
+            <div class="mb-3">
+                <label asp-for="FirstName" class="form-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <small><span asp-validation-for="FirstName" class="text-danger"></span></small>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="LastName" class="form-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <small><span asp-validation-for="LastName" class="text-danger"></span></small>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <small><span asp-validation-for="Email" class="text-danger"></span></small>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <small><span asp-validation-for="Password" class="text-danger"></span></small>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ComparePassword" class="form-label"></label>
+                <input asp-for="ComparePassword" class="form-control" />
+                <small><span asp-validation-for="ComparePassword" class="text-danger"></span></small>
+            </div>
+
+            
+            <div class="d-grid mb-5">
+                <button type="submit" class="btn btn-success mt-2">Register</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
