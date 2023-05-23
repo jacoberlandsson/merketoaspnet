@@ -24,7 +24,7 @@
         <div class="collection-grid">
             @foreach (var product in Model.PopularProducts)
             {
-                <a asp-action="ProductDetails" asp-controller="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="collection-item">
+                <a asp-action="Index" asp-controller="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="collection-item">
                     <img src="../images/placeholders/270x295.svg" alt="">
                     <div class="body">
                         <div class="title">@product.ProductName</div>

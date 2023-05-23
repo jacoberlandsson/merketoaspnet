@@ -1,16 +1,26 @@
-﻿@inject UserManager<UserEntity> userManager
+﻿
+@inject UserAdministratorService userAdministratorService
 
 @{
     ViewData["Title"] = "Backoffice";
 }
-
-
-   
-    <div class="backoffice min-vh-100">
-   
-    @foreach(var user in userManager.Users)
+<div class="container-bo min-vh-100">
+   <h2>Backoffice roles: </h2>
+    @foreach(var user in await userAdministratorService.GetUsersAsync())
     {
+        
+        
 
-        <div>@user.Email</div>
+        <div class="roles-container">
+            <div> @user.Email </div>
+           -
+            @foreach (var role in user.NameOfRoles)
+            {
+                <div>@role</div>
+            }
+        
+        </div>
     }
-</div>
+
+    </div>
+
