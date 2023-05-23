@@ -1,3 +1,11 @@
 .productpage {
     margin: 10rem;
 }
+
+.backoffice {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

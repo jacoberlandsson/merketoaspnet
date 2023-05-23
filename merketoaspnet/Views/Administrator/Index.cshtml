@@ -1,3 +1,16 @@
-﻿@{
+﻿@inject UserManager<UserEntity> userManager
+
+@{
     ViewData["Title"] = "Backoffice";
 }
+
+
+   
+    <div class="backoffice min-vh-100">
+   
+    @foreach(var user in userManager.Users)
+    {
+
+        <div>@user.Email</div>
+    }
+</div>
