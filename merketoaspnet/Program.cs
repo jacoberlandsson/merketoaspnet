@@ -20,6 +20,8 @@ builder.Services.AddScoped<UserAddressRepo>();
 
 // Services
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<AuthenticationService>();
+builder.Services.AddScoped<AddressService>();
 
 
 
@@ -30,6 +32,11 @@ builder.Services.AddIdentity<UserEntity, IdentityRole>(x =>
     x.User.RequireUniqueEmail = true;
     x.Password.RequiredLength = 8;
 }).AddEntityFrameworkStores<DataContext>();
+builder.Services.ConfigureApplicationCookie(x =>
+{
+    x.LoginPath = "/login";
+    x.AccessDeniedPath = "/denied";
+});
 
 var app = builder.Build();
 app.UseHsts();
