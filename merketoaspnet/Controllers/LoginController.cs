@@ -2,6 +2,7 @@
 using merketoaspnet.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace merketoaspnet.Controllers
 {
@@ -40,8 +41,14 @@ namespace merketoaspnet.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "AccessDenied");
+                if (await _authenticationService.LoginUserAsync(viewModel))
+                {
+                    return RedirectToAction("Index", "AccessDenied");
+                }
             }
+              
+              
+            
                
             return View(viewModel);
         }
