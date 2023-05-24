@@ -4,23 +4,26 @@
 @{
     ViewData["Title"] = "Backoffice";
 }
+
+ <partial name="/Views/Partials/_SignedInHeader.cshtml" />
 <div class="container-bo min-vh-100">
-   <h2>Backoffice roles: </h2>
+    <div>
+   <h2 class="bo-title">Backoffice roles: </h2>
     @foreach(var user in await userAdministratorService.GetUsersAsync())
     {
         
         
 
         <div class="roles-container">
-            <div> @user.Email </div>
-           -
+                <div class="assigned-role"> @user.Email </div>
+          
             @foreach (var role in user.NameOfRoles)
             {
-                <div>@role</div>
+                <div class="assigned-title">@role</div>
             }
         
         </div>
     }
-
+    </div>
     </div>
 

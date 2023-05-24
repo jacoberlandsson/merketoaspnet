@@ -1,0 +1,20 @@
+﻿<header class="bo-header">
+    <div class="container bo-header">
+        <div class="logo"><img src="images/logo.svg" alt="">bmerketo</div>
+        <nav id="menu" class="menu-links">
+            <a class="bo-link" asp-controller="Home" asp-action="Index">HOME</a>
+            <a class="bo-link" asp-controller="Home" asp-action="Products">PRODUCTS</a>
+            <a class="bo-link" asp-controller="Contacts" asp-action="Index">CONTACT</a>
+        </nav>
+        <nav class="menu-icons">
+            <a class="bo-link logout" asp-controller="Logout" asp-action="Index">Logout</a>
+           
+
+        </nav>
+        <div class="toggle">
+            <button class="btn-toggle btn-outline-white" data-option="toggle" data-target="#menu">
+                <i id="icon" class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>

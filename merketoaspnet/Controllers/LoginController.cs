@@ -26,7 +26,7 @@ namespace merketoaspnet.Controllers
             {
                 if (await _authenticationService.LoginAsync(viewModel))
                 {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Administrator");
                 }
                 else
                     ModelState.AddModelError("", "Wrong email or password, please try again");
