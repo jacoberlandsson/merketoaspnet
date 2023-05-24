@@ -22,15 +22,27 @@ namespace merketoaspnet.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(LoginViewModel viewModel)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && viewModel.Email.Contains("administrator")) 
             {
                 if (await _authenticationService.LoginUserAsync(viewModel))
                 {
                         return RedirectToAction("Index", "Administrator");
                 }
-                else
-                    return RedirectToAction("Index", "AccessDenied");
+                
             }
+            else if (ModelState.IsValid)
+            {
+                if(await _authenticationService.LoginUserAsync(viewModel))
+                {
+                    return RedirectToAction("Index", "User");
+                }
+                
+            }
+            else
+            {
+                return RedirectToAction("Index", "AccessDenied");
+            }
+               
             return View(viewModel);
         }
     }
