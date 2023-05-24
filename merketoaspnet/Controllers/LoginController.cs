@@ -29,7 +29,7 @@ namespace merketoaspnet.Controllers
                         return RedirectToAction("Index", "Administrator");
                 }
                 else
-                    ModelState.AddModelError("","Wrong email or password, please try again");
+                    return RedirectToAction("Index", "AccessDenied");
             }
             return View(viewModel);
         }

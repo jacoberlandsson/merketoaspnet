@@ -146,3 +146,13 @@ h1, h2 {
     flex-direction: row-reverse;
     align-items: center;
 }
+
+.access-denied-wrapper {
+   
+}
+
+.access-denied {
+  
+   text-align: center;
+   font-size: 2rem;
+}
