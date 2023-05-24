@@ -22,7 +22,7 @@ namespace merketoaspnet.Helpers.Services
             _addressService = addressService;
         }
 
-        public async Task<bool> RegisterAsync(RegisterViewModel viewModel)
+        public async Task<bool> RegisterUserAsync(RegisterViewModel viewModel)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace merketoaspnet.Helpers.Services
             return false;
         }
 
-        public async Task<bool> LoginAsync(LoginViewModel viewModel)
+        public async Task<bool> LoginUserAsync(LoginViewModel viewModel)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace merketoaspnet.Helpers.Services
             return false;
         }
 
-        public async Task<bool> LogoutAsync()
+        public async Task<bool> LogoutUserAsync()
         {
             try
             {

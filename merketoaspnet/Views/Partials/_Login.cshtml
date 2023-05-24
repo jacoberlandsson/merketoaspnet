@@ -15,6 +15,13 @@
                 <input asp-for="Password" class="form-control" onkeyup="validatePassword" />
                 <small><span asp-validation-for="Password" class="text-danger"></span></small>
             </div>
+
+            <div>
+                    
+                    <input type="checkbox" asp-for="RememberMe" />
+                    <label asp-for="RememberMe"> Remember Me</label>
+            </div>
+
             <div class="d-grid mb-5">
                 <button type="submit" class="btn btn-success mt-2">Login</button>
             </div>

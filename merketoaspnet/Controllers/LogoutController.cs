@@ -17,7 +17,7 @@ namespace merketoaspnet.Controllers
         public async Task<IActionResult> Index()
         {
 
-                    await _authenticationService.LogoutAsync();
+                    await _authenticationService.LogoutUserAsync();
                     {
                         return RedirectToAction("Index", "Home");
                     }

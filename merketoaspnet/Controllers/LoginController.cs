@@ -24,12 +24,12 @@ namespace merketoaspnet.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (await _authenticationService.LoginAsync(viewModel))
+                if (await _authenticationService.LoginUserAsync(viewModel))
                 {
                         return RedirectToAction("Index", "Administrator");
                 }
                 else
-                    ModelState.AddModelError("", "Wrong email or password, please try again");
+                    ModelState.AddModelError("","Wrong email or password, please try again");
             }
             return View(viewModel);
         }

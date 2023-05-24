@@ -45,6 +45,7 @@ public class HomeController : Controller
         return View(viewModel);
     }
 
+
     public async Task<IActionResult> Products()
     {
         var viewModel = new HomeViewModel

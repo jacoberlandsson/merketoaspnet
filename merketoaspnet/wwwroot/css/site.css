@@ -111,6 +111,7 @@ h1, h2 {
 }
 
 
+
 /*Register*/
 
 .register-container {
@@ -133,4 +134,15 @@ h1, h2 {
     background-color: #1F3044;
     margin-bottom: 2rem;
     
+}
+
+.collection-item {
+    background-color: #FDD935;
+    color: #1F3044;
+}
+
+.rememberme {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }

@@ -29,7 +29,7 @@ namespace merketoaspnet.Controllers
             {
                 if (!await _userManager.Users.AnyAsync(x => x.Email == viewModel.Email))
                 {
-                    if(await _authenticationService.RegisterAsync(viewModel))
+                    if(await _authenticationService.RegisterUserAsync(viewModel))
                     return RedirectToAction("Index", "Login");
                 }
                 else
