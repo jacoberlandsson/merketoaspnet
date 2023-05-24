@@ -33,23 +33,22 @@ namespace merketoaspnet.Controllers
             }
             else if (ModelState.IsValid)
             {
-                if(await _authenticationService.LoginUserAsync(viewModel))
+                if (await _authenticationService.LoginUserAsync(viewModel))
                 {
                     return RedirectToAction("Index", "User");
                 }
+
+
+            }
+            if (ModelState.IsValid)
+            { 
+              if  (!await _authenticationService.LoginUserAsync(viewModel))
                 
+                return RedirectToAction("Index", "AccessDenied");
             }
-            else
-            {
-                if (await _authenticationService.LoginUserAsync(viewModel))
-                {
-                    return RedirectToAction("Index", "AccessDenied");
-                }
-            }
-              
-              
-            
-               
+
+
+
             return View(viewModel);
         }
     }
