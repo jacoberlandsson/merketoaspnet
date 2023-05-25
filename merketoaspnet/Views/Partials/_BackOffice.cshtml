@@ -6,6 +6,9 @@
 <div class="container-bo min-vh-100">
     <div>
         <h2 class="bo-title">Backoffice roles: </h2>
+
+        
+
         @foreach (var user in await userAdministratorService.GetUsersAsync())
         {
 
@@ -13,6 +16,7 @@
 
             <div class="roles-container">
                 <div class="assigned-role"> @user.Email </div>
+                
 
                 @foreach (var role in user.NameOfRoles)
                 {

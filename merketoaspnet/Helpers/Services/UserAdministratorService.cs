@@ -9,20 +9,22 @@ public class UserAdministratorService
 {
     private readonly UserManager<UserEntity> _userManager;
 
+
     public UserAdministratorService(UserManager<UserEntity> userManager)
     {
         _userManager = userManager;
     }
 
-    public async Task<IEnumerable<User>> GetUsersAsync()
+    public async Task<IEnumerable<UserAccount>> GetUsersAsync()
     {
        
 
-        var users = new List<User>();
+        var users = new List<UserAccount>();
         foreach (var user in await _userManager.Users.ToListAsync())
         {
-            var _user = new User
+            var _userAccount = new UserAccount
             {
+               
                 Id = user.Id,
                 Email = user.Email,
 
@@ -30,16 +32,18 @@ public class UserAdministratorService
 
             foreach(var role in await _userManager.GetRolesAsync(user))
             {
-                _user.NameOfRoles.Add(role);
+                _userAccount.NameOfRoles.Add(role);
             }
 
-            users.Add(_user);
+           
+
+            users.Add(_userAccount);
         }
         return users;
 
     }
 
-    public class User
+    public class UserAccount
     {
         public string? Id { get; set; }
         public string? Email { get; set; }

@@ -32,9 +32,9 @@ namespace merketoaspnet.Helpers.Services
                     var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == viewModel.Email);
                     await _userManager.AddToRoleAsync(user!, "user");
 
-                    var createAddress = await _addressService.GetOrCreateAddressAsync(viewModel);
+                    var matchAddress = await _addressService.GetOrCreateAddressAsync(viewModel);
                     
-                    return await _addressService.AddUserAddresses(user!.Id, createAddress.Id);
+                    return await _addressService.AddUserAddresses(user!.Id, matchAddress.Id);
                         
                 }
             }
@@ -46,8 +46,8 @@ namespace merketoaspnet.Helpers.Services
         {
             try
             {
-                var result = await _signInManager.PasswordSignInAsync(viewModel.Email, viewModel.Password, viewModel.RememberMe, false);
-                return result.Succeeded;
+                var loginRequest = await _signInManager.PasswordSignInAsync(viewModel.Email, viewModel.Password, viewModel.RememberMe, false);
+                return loginRequest.Succeeded;
 
             }
             catch (Exception ex) { Debug.WriteLine(ex.Message); }
