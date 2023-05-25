@@ -7,6 +7,7 @@ public class Product
     public string? Ingress { get; set; }
     public string? Description { get; set; }
     public string? VendorName { get; set; }
+    public string? Image { get; set; }
     public string? Price { get; set; }
 
     public List<string> Tags { get; set; } = new List<string>();
