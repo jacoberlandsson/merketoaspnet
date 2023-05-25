@@ -51,29 +51,17 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Products()
     {
-        var viewModel = new HomeViewModel
+        var viewModel = new ProductsViewModel
         {
-            New = new ProductByTagsViewModel
+            Products = new AllProductsViewModel
             {
-                Title = "New",
-                NewProducts = await _productService.GetAllByTagNameAsync("New headphones")
-            },
-
-            Popular = new ProductByTagsViewModel
-            {
-                Title = "Popular",
-                PopularProducts = await _productService.GetAllByTagNameAsync("Popular headphones")
-
-
-
-
-            },
-
-            Featured = new ProductByTagsViewModel
-            {
-                Title = "Featured",
-                NewProducts = await _productService.GetAllByTagNameAsync("Featured headphones")
+                Title = "Products",
+                AllProducts = await _productService.GetAllProductsAsync()
             }
+
+           
+
+            
 
         };
 

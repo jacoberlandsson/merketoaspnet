@@ -24,6 +24,28 @@ public class ProductService
 
     #endregion
     
+    public async Task<IEnumerable<Product>> GetAllProductsAsync()
+    {
+        var products = await _productRepository.GetAllAsync();
+
+        var productList = new List<Product>();
+        foreach (var product in products)
+        {
+          
+            productList.Add(new Product
+            {
+                ArticleNumber = product.ArticleNumber,
+                ProductName = product.ProductName,
+                Ingress = product.Ingress,
+                Description = product.Description,
+               
+                VendorName = product.VendorName,
+                Price = product.Price,
+                Image = product.Image
+            });
+        }
+        return productList;
+    }
 
     public async Task<Product> GetProductByArticleNumberAsync(string articleNumber)
     {
