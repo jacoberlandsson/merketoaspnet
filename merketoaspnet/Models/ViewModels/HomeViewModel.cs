@@ -6,4 +6,5 @@ public class HomeViewModel
     public ProductByTagsViewModel? New { get; set; }
     public ProductByTagsViewModel? Featured { get; set; }
 
+
 }
