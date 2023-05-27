@@ -8,7 +8,7 @@
             @foreach (var product in Model.NewProducts)
             {
                 <a asp-action="Index" asp-controller="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="collection-item">
-                    <img src="@product.Image" alt="Picture of headphones" />
+                    <img class="headphones-image" src="@product.Image" alt="Picture of headphones" />
                     <div class="body">
                         <div class="title">@product.VendorName @product.ProductName</div>
                         
@@ -25,7 +25,7 @@
             @foreach (var product in Model.PopularProducts)
             {
                 <a asp-action="Index" asp-controller="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="collection-item">
-                    <img src="@product.Image" alt="A picture of headphones">
+                    <img class="headphones-image" src="@product.Image" alt="A picture of headphones">
                     <div class="body">
                         <div class="title">@product.VendorName @product.ProductName</div>
                         <div class="info">
@@ -41,7 +41,7 @@
             @foreach (var product in Model.FeaturedProducts)
             {
                 <a asp-action="ProductDetails" asp-controller="ProductDetails" asp-route-articleNumber="@product.ArticleNumber" class="collection-item">
-                    <img src="@product.Image" alt="A picture of headphones">
+                    <img class="headphones-image" src="@product.Image" alt="A picture of headphones">
                     <div class="body">
                         <div class="title">@product.ProductName</div>
                         <div class="info">

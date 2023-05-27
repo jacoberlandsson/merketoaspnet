@@ -154,3 +154,13 @@ h1, h2 {
    text-align: center;
    font-size: 2rem;
 }
+
+.headphones-image {
+    width: 200px;
+    max-height: 165px;
+}
+
+.front-link {
+    color: white;
+    text-decoration: none;
+}

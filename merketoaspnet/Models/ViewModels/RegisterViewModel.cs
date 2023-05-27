@@ -47,6 +47,8 @@ namespace merketoaspnet.Models.ViewModels
         [Required(ErrorMessage = "This field is required")]
         public string City { get; set; } = null!;
 
+
+
         public static implicit operator UserEntity(RegisterViewModel viewModel)
         {
             return new UserEntity
